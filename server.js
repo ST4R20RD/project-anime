@@ -45,4 +45,7 @@ app.get("/", (req, res) => {
   res.render("home");
 });
 
+const userRouter = require("./routes/user.routes");
+app.use("/user", userRouter);
+
 app.listen(process.env.PORT);
