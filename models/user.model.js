@@ -21,6 +21,11 @@ const userSchema = mongoose.Schema({
   favoriteAnimeWebsite: {
     type: String,
   },
+  list: {
+    watched: [],
+    watching: [],
+    planToWatch: [],
+  }
 });
 
 module.exports = mongoose.model("User", userSchema);

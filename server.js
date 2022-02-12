@@ -48,4 +48,7 @@ app.get("/", (req, res) => {
 const userRouter = require("./routes/user.routes");
 app.use("/user", userRouter);
 
+const animeRouter = require("./routes/anime.routes");
+app.use("/anime", animeRouter);
+
 app.listen(process.env.PORT);

@@ -10,4 +10,9 @@ const animeSchema = mongoose.Schema({
     type: String,
     required: true,
   },
+  id: {
+    type: mongoose.SchemaTypes.ObjectId,
+  }
 });
+
+module.exports = mongoose.model("Anime", animeSchema);

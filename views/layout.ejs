@@ -11,9 +11,37 @@
         padding: 0;
         box-sizing: border-box;
       }
+      body {
+        position: relative;
+        width: 100vw;
+        display: flex;
+        flex-direction: column;
+        gap: 20px;
+      }
+      .info {
+        position: absolute;
+        top: 20px;
+        right: 20px;
+        padding: 20px;
+        border: 1px solid gray;
+        background-color: aliceblue;
+      }
     </style>
   </head>
   <body>
-    <%- body %>
+    <nav>
+      <ul>
+        <% if (!currentUser) { %>
+        <li><a href="/user/signin">signin</a></li>
+        <% } %> <% if (!currentUser) { %>
+        <li><a href="/user/login">login</a></li>
+        <% } %> <% if (currentUser) { %>
+        <li><a href="/user/logout">logout</a></li>
+        <% } %> <% if (currentUser) { %>
+        <li><a href="/anime/create">Add Anime to list</a></li>
+        <% } %> 
+      </ul>
+    </nav>
+    <div class="container"><%- body %></div>
   </body>
 </html>
