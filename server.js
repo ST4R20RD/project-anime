@@ -4,12 +4,16 @@ const expressLayouts = require("express-ejs-layouts");
 const session = require("express-session");
 const store = require("connect-mongo");
 const dotenv = require("dotenv");
+const { addAnimeListToDB } = require("./AnimeData")
+
 // environment variables
 dotenv.config();
 
 mongoose.connect(process.env.MONGODB_URL);
 
 const app = express();
+
+//addAnimeListToDB();
 
 // template engine setup
 app.set("view engine", "ejs");

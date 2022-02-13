@@ -1,0 +1,18 @@
+<h1>Add Anime to list</h1>
+<ul>
+  <% items.forEach((item) => { %>
+  <li><%= item.attributes.canonicalTitle %></li>
+  <% }) %>
+</ul>
+<script>
+  function pageChanger(flag) {
+    let url = window.location.href.substring(0, window.location.href.lastIndexOf("/") + 1);
+    console.log(url)
+    let currentPageNum = window.location.href.substring(window.location.href.lastIndexOf("/") + 1);
+    flag ? window.location.href = url + (parseInt(currentPageNum) + 1) : window.location.href = url + (parseInt(currentPageNum) - 1)
+  }
+</script>
+
+<button onclick="pageChanger(false)">previous</button>
+<button onclick="pageChanger(true)">next</button>
+
