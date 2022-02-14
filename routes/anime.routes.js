@@ -33,15 +33,21 @@ router.post("/create", isLoggedIn, async (req, res) => {
   }
 });
 
+//get the animes and pass to the view listAnime
 router.get("/listAnime", async (req, res) => {
   const items = await Anime.find();
-  res.render("anime/listAnime", { items });
+  res.render("anime/listAnime", { items , img });
 });
 
+
+
+//get the anime page by parameter page number
 router.get("/listAnime/page/:pageNumber", async (req, res) => {
   const pageNr = req.params.pageNumber;
   const items = await AnimeData.getAnimePage(pageNr);
   res.render("anime/listAnime", { items, pageNr });
 });
+
+
 
 module.exports = router;

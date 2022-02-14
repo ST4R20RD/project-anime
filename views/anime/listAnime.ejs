@@ -1,18 +1,26 @@
 <h1>Add Anime to list</h1>
+
 <ul>
   <% items.forEach((item) => { %>
-  <li><%= item.attributes.canonicalTitle %></li>
+  <li>
+    <%= item.attributes.canonicalTitle %>
+  </li>
   <% }) %>
 </ul>
+
 <script>
   function pageChanger(flag) {
+    //Subtring to get the whole URL before the page number, starting from index zero
     let url = window.location.href.substring(0, window.location.href.lastIndexOf("/") + 1);
-    console.log(url)
+
+    //Subtring to get the page number after the last "/"
     let currentPageNum = window.location.href.substring(window.location.href.lastIndexOf("/") + 1);
+
+    //previous and next button logic
+    //if flag is true, add to the url the current page number +1 : if flag is false, add to the url the current number -1.
     flag ? window.location.href = url + (parseInt(currentPageNum) + 1) : window.location.href = url + (parseInt(currentPageNum) - 1)
   }
 </script>
 
 <button onclick="pageChanger(false)">previous</button>
 <button onclick="pageChanger(true)">next</button>
-
