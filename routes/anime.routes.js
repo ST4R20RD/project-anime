@@ -48,6 +48,10 @@ router.get("/listAnime/page/:pageNumber", async (req, res) => {
   res.render("anime/listAnime", { items, pageNr });
 });
 
-
+router.get("/:id", async (req, res) => {
+  const id = req.params.id
+  const item = await AnimeData.getAnimeData(id)
+  res.render("anime/anime", { item })
+})
 
 module.exports = router;

@@ -1,11 +1,11 @@
 const axios = require("axios");
 const Anime = require("./models/anime.model");
 
-function getAnimeData() {
+function getAnimeData(id) {
   return axios
-    .get("https://kitsu.io/api/edge/anime")
+    .get(`https://kitsu.io/api/edge/anime/${id}`)
     .then(function (response) {
-      return response;
+      return response.data.data
     })
     .catch(function (error) {
       // handle error
@@ -43,4 +43,4 @@ function addAnimeListToDB() {
   });
 }
 
-module.exports = { addAnimeListToDB, getAnimePage };
+module.exports = { getAnimeData, addAnimeListToDB, getAnimePage };

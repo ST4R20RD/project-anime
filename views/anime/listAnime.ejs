@@ -3,7 +3,7 @@
 <ul>
   <% items.forEach((item) => { %>
   <li>
-    <%= item.attributes.canonicalTitle %>
+    <a href="/anime/<%= item.id %>"> <%= item.attributes.canonicalTitle %> </a>
   </li>
   <% }) %>
 </ul>
