@@ -37,7 +37,9 @@
         <li><a href="/user/login">login</a></li>
         <% } %> <% if (currentUser) { %>
         <li><a href="/user/logout">logout</a></li>
-        <% } %> 
+        <% } %> <% if (currentUser) { %>
+        <li><a href="/user/profile">Profile</a></li>
+        <% } %>
         <li><a href="/anime/listAnime/page/1">Anime list</a></li>
       </ul>
     </nav>

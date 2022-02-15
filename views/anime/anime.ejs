@@ -1,10 +1,69 @@
-<h1 id="title"><%= item.attributes.canonicalTitle %></h1> <br>
+<style>
+  .btn {
+    color: white;
+    padding: 7px;
+    font-size: 100%;
+    border: none;
+    cursor: pointer;
+    background-color: #4183d7;
+    border-radius: 4px;
+  }
+
+  .btn:hover {
+    background-color: #22a7f0;
+  }
+
+  .wraper {
+    display: inline-block;
+  }
+
+  .dropdown-item {
+    display: none;
+    width: 110px;
+    position: absolute;
+    background-color: #03c9a9;
+    overflow: auto;
+    box-shadow: 0px 9px 15px 0px rgba(0, 0, 0, 1);
+    z-index: 1;
+  }
+
+  .dropdown-item a {
+    color: black;
+    padding: 12% 16%;
+    text-decoration: none;
+    display: block;
+  }
+
+  .dropdown a:hover {
+    background-color: #f1f1f1;
+  }
+
+  .show {
+    display: block;
+  }
+</style>
+<h1 id="title"><%= item.attributes.canonicalTitle %></h1>
+<br />
 <p id="subtype"><%= item.attributes.subtype %></p>
 <p id="status"><%= item.attributes.status %></p>
 <p id="ageRating">Rated: <%= item.attributes.ageRating %></p>
 <p id="episodeCount">Episodes: <%= item.attributes.episodeCount %></p>
 <h2 id="synopsisLabel">Synopsis</h2>
 <h3 id="synopsis"><%= item.attributes.synopsis %></h3>
-<h2 id="averageRatingLabel">Average Rating</h2>  
+<h2 id="averageRatingLabel">Average Rating</h2>
 <h2 id="averageRating"><%= item.attributes.averageRating%></h2>
 
+<button onclick="myFunction()" class="btn">Dropdown</button>
+<div id="myDropdown" class="dropdown-item">
+  <a href="/anime/addToList/<%= item.id %>/watched">Watched</a>
+  <a href="/anime/addToList/<%= item.id %>/watching">Watching</a>
+  <a href="/anime/addToList/<%= item.id %>/planToWatch">Plan To Watch</a>
+</div>
+
+<script>
+  const x = 0;
+
+  function myFunction() {
+    document.getElementById("myDropdown").classList.toggle("show");
+  }
+</script>

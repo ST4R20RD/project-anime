@@ -1,0 +1,7 @@
+<ul name="List">
+    <% list.forEach((item) => { %>
+    <li>
+      <a href="/anime/<%= item.id %>"> <%= item.attributes.canonicalTitle %> </a>
+    </li>
+    <% }) %>
+  </ul>

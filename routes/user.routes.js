@@ -50,7 +50,15 @@ router.get("/logout", (req, res) => {
 });
 
 router.get("/profile", isLoggedIn, (req, res) => {
-  res.render("user/profile");
+  const user = req.session.currentUser;
+  res.render("user/profile", { user });
 });
+
+router.get("/profile/:listOption", async (req, res) => {
+  const listOp = req.params.listOption;
+  const user = req.session.currentUser;
+  const list = user.list[listOp]
+  res.render("user/list", { user, list })
+})
 
 module.exports = router;
