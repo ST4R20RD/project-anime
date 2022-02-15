@@ -1,6 +1,7 @@
 <ul name="List">
     <% list.forEach((item) => { %>
     <li>
+      <img src="https://media.kitsu.io/anime/poster_images/<%= item.id %>/tiny.jpg" alt="">
       <a href="/anime/<%= item.id %>"> <%= item.attributes.canonicalTitle %> </a>
     </li>
     <% }) %>

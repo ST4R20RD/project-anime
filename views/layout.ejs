@@ -5,6 +5,7 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Document</title>
+    <link rel="stylesheet" type="text/css" href="../css/index.css" />
     <style>
       * {
         margin: 0;
@@ -12,10 +13,7 @@
         box-sizing: border-box;
       }
       body {
-        position: relative;
-        width: 100vw;
-        display: flex;
-        flex-direction: column;
+        width: 100%;
         gap: 20px;
       }
       .info {
@@ -30,15 +28,16 @@
   </head>
   <body>
     <nav>
-      <ul>
+      <ul class="navList">
+        <li><a href="/">HOME</a></li>
         <% if (!currentUser) { %>
-        <li><a href="/user/signin">signin</a></li>
+        <li style="float: right"><a href="/user/signin">Sign in</a></li>
         <% } %> <% if (!currentUser) { %>
-        <li><a href="/user/login">login</a></li>
+        <li style="float: right"><a href="/user/login">Log in</a></li>
         <% } %> <% if (currentUser) { %>
-        <li><a href="/user/logout">logout</a></li>
+        <li style="float: right"><a href="/user/profile">Profile</a></li>
         <% } %> <% if (currentUser) { %>
-        <li><a href="/user/profile">Profile</a></li>
+        <li style="float: right"><a href="/user/logout">Log out</a></li>
         <% } %>
         <li><a href="/anime/listAnime/page/1">Anime list</a></li>
       </ul>

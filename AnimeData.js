@@ -14,7 +14,7 @@ function getAnimeData(id) {
 }
 
 function getAnimePage(pageNumber) {
-  const pageLimit = 10;
+  const pageLimit = 20;
   const string = `https://kitsu.io/api/edge/anime?page[limit]=${pageLimit}&page[offset]=${pageLimit * (pageNumber - 1)}`
   return axios
     .get(string).then(function (response) {
