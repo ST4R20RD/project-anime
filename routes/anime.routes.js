@@ -33,20 +33,19 @@ router.get("/addToList/:id/:listOption", async (req, res) => {
   try {
     switch (listOp) {
       case "watched":
-        if (!isAnimeEqualTo(user.list.watched, anime)) {
-          console.log("im here")
-          user.list.watched.push(anime);
-        }
+        if (!isAnimeEqualTo(user.list.watched, anime)) user.list.watched.push(anime);
+        if (isAnimeEqualTo(user.list.watching, anime)) user.list.watching.pop(anime);
+        if (isAnimeEqualTo(user.list.planToWatch, anime)) user.list.planToWatch.pop(anime);
         break;
       case "watching":
-        if (!isAnimeEqualTo(user.list.watching, anime)) {
-          user.list.watching.push(anime);
-        }
+        if (!isAnimeEqualTo(user.list.watching, anime)) user.list.watching.push(anime);
+        if (isAnimeEqualTo(user.list.watched, anime)) user.list.watched.pop(anime);
+        if (isAnimeEqualTo(user.list.planToWatch, anime)) user.list.planToWatch.pop(anime);
         break;
       case "planToWatch":
-        if (!isAnimeEqualTo(user.list.planToWatch, anime)) {
-          user.list.planToWatch.push(anime);
-        }
+        if (!isAnimeEqualTo(user.list.planToWatch, anime)) user.list.planToWatch.push(anime);
+        if (isAnimeEqualTo(user.list.watched, anime)) user.list.watched.pop(anime);
+        if (isAnimeEqualTo(user.list.watching, anime)) user.list.watching.pop(anime);
     }
     res.redirect(`/anime/${animeId}`);
   } catch (error) {
