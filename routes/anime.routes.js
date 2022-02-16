@@ -1,5 +1,6 @@
 const express = require("express");
 const { isLoggedIn } = require("../middlewares/guard");
+const { isAnimeEqualTo } = require("../routes/utils/isAnimeEqualTo")
 const Anime = require("../models/anime.model");
 const AnimeData = require("../AnimeData");
 
@@ -32,17 +33,21 @@ router.get("/addToList/:id/:listOption", async (req, res) => {
   try {
     switch (listOp) {
       case "watched":
-        user.list.watched.push(anime);
-      //console.log(user.list.watched)
+        if (!isAnimeEqualTo(user.list.watched, anime)) {
+          console.log("im here")
+          user.list.watched.push(anime);
+        }
+        break;
       case "watching":
-        //if (user.list.watched.findOneById(animeId) === false)
-        user.list.watching.push(anime);
-      //console.log(user.list.watching)
+        if (!isAnimeEqualTo(user.list.watching, anime)) {
+          user.list.watching.push(anime);
+        }
+        break;
       case "planToWatch":
-        user.list.planToWatch.push(anime);
-      //console.log(user.list.planToWatch)
+        if (!isAnimeEqualTo(user.list.planToWatch, anime)) {
+          user.list.planToWatch.push(anime);
+        }
     }
-    console.log(`Added to ${listOp} list`);
     res.redirect(`/anime/${animeId}`);
   } catch (error) {
     res.redirect(`/anime/${animeId}`);

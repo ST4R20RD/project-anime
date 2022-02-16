@@ -57,7 +57,7 @@ router.get("/profile", isLoggedIn, (req, res) => {
 router.get("/profile/:listOption", async (req, res) => {
   const listOp = req.params.listOption;
   const user = req.session.currentUser;
-  const list = user.list[listOp]
+  const list = user.list[listOp];
   res.render("user/list", { user, list })
 })
 
