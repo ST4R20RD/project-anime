@@ -60,6 +60,12 @@ router.get("/listAnime/page/:pageNumber", async (req, res) => {
   res.render("anime/listAnime", { items, pageNr });
 });
 
+router.get("/listAnime/search", async (req, res) => {
+  const { searchBarInput } = req.query;
+  const result = await AnimeData.searchAnime(searchBarInput);
+  res.render("anime/searchResult", { result });
+});
+
 router.get("/:id", async (req, res) => {
   const id = req.params.id;
   const item = await AnimeData.getAnimeData(id);

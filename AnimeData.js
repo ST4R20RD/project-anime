@@ -5,7 +5,7 @@ function getAnimeData(id) {
   return axios
     .get(`https://kitsu.io/api/edge/anime/${id}`)
     .then(function (response) {
-      return response.data.data
+      return response.data.data;
     })
     .catch(function (error) {
       // handle error
@@ -15,14 +15,34 @@ function getAnimeData(id) {
 
 function getAnimePage(pageNumber) {
   const pageLimit = 20;
-  const string = `https://kitsu.io/api/edge/anime?page[limit]=${pageLimit}&page[offset]=${pageLimit * (pageNumber - 1)}`
+  const url = `https://kitsu.io/api/edge/anime?page[limit]=${pageLimit}&page[offset]=${
+    pageLimit * (pageNumber - 1)
+  }`;
   return axios
-    .get(string).then(function (response) {
+    .get(url)
+    .then(function (response) {
       return response.data.data;
-    }).catch(function (error) {
+    })
+    .catch(function (error) {
       // handle error
       console.log(error);
     });
+}
+
+function searchAnime(searchString) {
+  if (searchString != undefined) {
+    let str = searchString.replace(" ", "%20");
+    const url = `https://kitsu.io/api/edge/anime?filter[text]=${str}`;
+    return axios
+      .get(url)
+      .then(function (response) {
+        return response.data.data;
+      })
+      .catch(function (error) {
+        // handle error
+        console.log(error);
+      });
+  }
 }
 
 function addAnimeListToDB() {
@@ -43,4 +63,4 @@ function addAnimeListToDB() {
   });
 }
 
-module.exports = { getAnimeData, addAnimeListToDB, getAnimePage };
+module.exports = { getAnimeData, addAnimeListToDB, getAnimePage, searchAnime };
