@@ -1,0 +1,26 @@
+.lists {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-around;
+    align-items: center;
+    list-style: none;
+}
+
+.lists > li {
+  box-shadow: rgba(0, 0, 0, 0.16) 0px 3px 6px, rgba(0, 0, 0, 0.23) 0px 3px 6px;
+  position: relative;
+  background-color: rgb(131, 131, 131);
+  margin: 20px;
+  max-width: 284px;
+  padding: 10px;
+}
+
+.lists > li > a {
+  text-decoration: none;
+  bottom: 0px;
+  right: 0px;
+  color: white;
+  width: 100%;
+  height: 20px;
+  font-size: 20px;
+}
