@@ -1,8 +1,8 @@
 .lists {
     display: flex;
-    flex-direction: row;
+    flex-direction: column;
     justify-content: space-around;
-    align-items: center;
+    align-items: left;
     list-style: none;
 }
 
@@ -15,7 +15,7 @@
   padding: 10px;
 }
 
-.lists > li > a {
+.lists > li > p {
   text-decoration: none;
   bottom: 0px;
   right: 0px;

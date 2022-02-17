@@ -2,9 +2,33 @@
 <h1>Profile</h1>
 <h2> <%= user.username %></h2>
 <ul class="lists">
-  <li><a href="/user/profile/watched">Watched</a></li>
-  <li><a href="/user/profile/watching">Watching</a></li>
-  <li><a href="/user/profile/planToWatch">Plan To Watch</a></li>
+  <li><p>Watched</p></li>
+  <ul name="list">
+    <% user.list.watched.forEach((item) => { %>
+    <li>
+      <img src="https://media.kitsu.io/anime/poster_images/<%= item.id %>/tiny.jpg" alt="">
+      <a href="/anime/<%= item.id %>"> <%= item.attributes.canonicalTitle %> </a>
+    </li>
+    <% }) %>
+  </ul>
+  <li><p>Watching</p></li>
+  <ul name="List">
+    <% user.list.watching.forEach((item) => { %>
+    <li>
+      <img src="https://media.kitsu.io/anime/poster_images/<%= item.id %>/tiny.jpg" alt="">
+      <a href="/anime/<%= item.id %>"> <%= item.attributes.canonicalTitle %> </a>
+    </li>
+    <% }) %>
+  </ul>
+  <li><p>Plan To Watch</p></li>
+  <ul name="List">
+    <% user.list.planToWatch.forEach((item) => { %>
+    <li>
+      <img src="https://media.kitsu.io/anime/poster_images/<%= item.id %>/tiny.jpg" alt="">
+      <a href="/anime/<%= item.id %>"> <%= item.attributes.canonicalTitle %> </a>
+    </li>
+    <% }) %>
+  </ul>
 </ul>
 
 

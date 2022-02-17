@@ -1,5 +1,5 @@
 <style>
-  .btn {
+  .addListbtn {
     color: white;
     padding: 7px;
     font-size: 100%;
@@ -9,7 +9,7 @@
     border-radius: 4px;
   }
 
-  .btn:hover {
+  .addListbtn:hover {
     background-color: #22a7f0;
   }
 
@@ -17,24 +17,24 @@
     display: inline-block;
   }
 
-  .dropdown-item {
+  .addListDrop-item {
     display: none;
     width: 110px;
     position: absolute;
     background-color: #03c9a9;
-    overflow: auto;
+    overflow: au;
     box-shadow: 0px 9px 15px 0px rgba(0, 0, 0, 1);
     z-index: 1;
   }
 
-  .dropdown-item a {
+  .addListDrop-item a {
     color: black;
     padding: 12% 16%;
     text-decoration: none;
     display: block;
   }
 
-  .dropdown a:hover {
+  .addListDrop a:hover {
     background-color: #f1f1f1;
   }
 
@@ -53,17 +53,17 @@
 <h2 id="averageRatingLabel">Average Rating</h2>
 <h2 id="averageRating"><%= item.attributes.averageRating%></h2>
 
-<button onclick="myFunction()" class="btn">Dropdown</button>
-<div id="myDropdown" class="dropdown-item">
-  <a href="/anime/addToList/<%= item.id %>/watched">Watched</a>
-  <a href="/anime/addToList/<%= item.id %>/watching">Watching</a>
-  <a href="/anime/addToList/<%= item.id %>/planToWatch">Plan To Watch</a>
+<butn onclick="myFunction()" class="addListbtn">Dropdown</butn>
+<div id="addListDrop" class="addListDrop-item">
+  <a href="/anime/addList/<%= item.id %>/watched">Watched</a>
+  <a href="/anime/addList/<%= item.id %>/watching">Watching</a>
+  <a href="/anime/addList/<%= item.id %>/planWatch">Plan To Watch</a>
 </div>
 
 <script>
   const x = 0;
 
   function myFunction() {
-    document.getElementById("myDropdown").classList.toggle("show");
+    document.getElementById("addListDrop").classList.ggle("show");
   }
 </script>
