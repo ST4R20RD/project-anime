@@ -66,6 +66,13 @@ router.get("/listAnime/search", async (req, res) => {
   res.render("anime/searchResult", { result });
 });
 
+router.get("/listAnime/filter", async (req, res) => {
+  const { filterAnimeList } = req.query
+  console.log(`here: ${filterAnimeList} `)
+  const result = await AnimeData.filterAnimeList(filterAnimeList)
+  res.render("anime/filterResult", { result, filterAnimeList  })
+})
+
 router.get("/:id", async (req, res) => {
   const id = req.params.id;
   const item = await AnimeData.getAnimeData(id);

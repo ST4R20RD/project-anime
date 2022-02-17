@@ -45,7 +45,20 @@ function searchAnime(searchString) {
   }
 }
 
-function addAnimeListToDB() {
+function filterAnimeList(categorie) {
+  const url = `https://kitsu.io/api/edge/anime?filter[categories]=${categorie}`
+  return axios
+      .get(url)
+      .then(function (response) {
+        return response.data.data;
+      })
+      .catch(function (error) {
+        // handle error
+        console.log(error);
+      });
+}
+
+/* function addAnimeListToDB() {
   getAnimeData().then((r) => {
     r.data.data.map((item) => {
       console.log(item.id);
@@ -61,6 +74,6 @@ function addAnimeListToDB() {
       anime.save();
     });
   });
-}
+} */
 
-module.exports = { getAnimeData, addAnimeListToDB, getAnimePage, searchAnime };
+module.exports = { getAnimeData, getAnimePage, searchAnime, filterAnimeList };
