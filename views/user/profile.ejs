@@ -3,29 +3,33 @@
 <h2> <%= user.username %></h2>
 <ul class="lists">
   <li><p>Watched</p></li>
-  <ul name="list">
+  <ul class="list">
     <% user.list.watched.forEach((item) => { %>
     <li>
-      <img src="https://media.kitsu.io/anime/poster_images/<%= item.id %>/tiny.jpg" alt="">
-      <a href="/anime/<%= item.id %>"> <%= item.attributes.canonicalTitle %> </a>
+      <a href="/anime/<%= item.id %>">
+        <img src="https://media.kitsu.io/anime/poster_images/<%= item.id %>/tiny.jpg" alt=""><br>
+        <%= item.attributes.canonicalTitle %> 
+      </a>
     </li>
     <% }) %>
   </ul>
   <li><p>Watching</p></li>
-  <ul name="List">
+  <ul class="list">
     <% user.list.watching.forEach((item) => { %>
     <li>
-      <img src="https://media.kitsu.io/anime/poster_images/<%= item.id %>/tiny.jpg" alt="">
-      <a href="/anime/<%= item.id %>"> <%= item.attributes.canonicalTitle %> </a>
+      <a href="/anime/<%= item.id %>">
+        <img src="https://media.kitsu.io/anime/poster_images/<%= item.id %>/tiny.jpg" alt=""><br>
+        <%= item.attributes.canonicalTitle %> </a>
     </li>
     <% }) %>
   </ul>
   <li><p>Plan To Watch</p></li>
-  <ul name="List">
+  <ul class="list">
     <% user.list.planToWatch.forEach((item) => { %>
     <li>
-      <img src="https://media.kitsu.io/anime/poster_images/<%= item.id %>/tiny.jpg" alt="">
-      <a href="/anime/<%= item.id %>"> <%= item.attributes.canonicalTitle %> </a>
+      <a href="/anime/<%= item.id %>">
+        <img src="https://media.kitsu.io/anime/poster_images/<%= item.id %>/tiny.jpg" alt=""><br>
+        <%= item.attributes.canonicalTitle %> </a>
     </li>
     <% }) %>
   </ul>
