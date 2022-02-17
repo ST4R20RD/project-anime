@@ -4,6 +4,7 @@ const expressLayouts = require("express-ejs-layouts");
 const session = require("express-session");
 const store = require("connect-mongo");
 const dotenv = require("dotenv");
+const AnimeData = require("./AnimeData")
 
 // environment variables
 dotenv.config();
@@ -44,8 +45,9 @@ app.use((req, res, next) => {
 });
 
 // root route
-app.get("/", (req, res) => {
-  res.render("home");
+app.get("/", async (req, res) => {
+  const items = await AnimeData.getTrendingAnime();
+  res.render("home", { items });
 });
 
 const userRouter = require("./routes/user.routes");

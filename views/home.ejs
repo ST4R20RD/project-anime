@@ -1,3 +1,14 @@
+<link rel="stylesheet" href="/css/home.css">
 <h1>PROJECT ANIME</h1>
-
-
+<br><br>
+<h2>Trending</h2>
+<ul class="trending">
+    <% items.forEach((item) => { %>
+    <li>
+      <a href="/anime/<%= item.id %>">
+        <img src="https://media.kitsu.io/anime/poster_images/<%= item.id %>/tiny.jpg" alt=""><br>
+        <%= item.attributes.canonicalTitle %> 
+      </a>
+    </li>
+    <% }) %>
+  </ul>

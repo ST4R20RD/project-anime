@@ -58,6 +58,19 @@ function filterAnimeList(categorie) {
       });
 }
 
+function getTrendingAnime() {
+  const url = "https://kitsu.io/api/edge/trending/anime"
+  return axios
+      .get(url)
+      .then(function (response) {
+        return response.data.data;
+      })
+      .catch(function (error) {
+        // handle error
+        console.log(error);
+      });
+}
+
 /* function addAnimeListToDB() {
   getAnimeData().then((r) => {
     r.data.data.map((item) => {
@@ -76,4 +89,4 @@ function filterAnimeList(categorie) {
   });
 } */
 
-module.exports = { getAnimeData, getAnimePage, searchAnime, filterAnimeList };
+module.exports = { getAnimeData, getAnimePage, searchAnime, filterAnimeList, getTrendingAnime };

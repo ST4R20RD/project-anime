@@ -8,17 +8,6 @@ const User = require("../models/user.model");
 
 const router = express.Router();
 
-router.get("/create", (req, res) => {
-  res.render("anime/createAnime");
-});
-
-router.post("/create", isLoggedIn, async (req, res) => {
-  const anime = new Anime();
-  anime.name = req.body.name;
-  anime.genre = req.body.genre;
-  const findAnime = Anime.findOne();
-});
-
 //get the animes and pass to the view listAnime
 router.get("/listAnime", async (req, res) => {
   const items = await Anime.find();
