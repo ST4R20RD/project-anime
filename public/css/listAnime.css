@@ -1,3 +1,8 @@
+h1 {
+  font-size:4em;
+  text-align:center;
+}
+
 .listAnimes {
   display: flex;
   flex-direction: row;
@@ -9,17 +14,17 @@
 }
 
 .container {
-margin: 50px;
+  margin: 50px;
 }
 
 .container > button {
-    border: none;
-    color: rgb(0, 0, 0);
-    padding: 15px 32px;
-    text-align: center;
-    text-decoration: none;
-    display: inline-block;
-    font-size: 16px;  
+  border: none;
+  color: rgb(0, 0, 0);
+  padding: 15px 32px;
+  text-align: center;
+  text-decoration: none;
+  display: inline-block;
+  font-size: 16px;  
 }
 
 .listAnimes > li {
@@ -81,4 +86,12 @@ margin: 50px;
 
 #searchBarSubmit:hover {
   cursor: pointer;
+}
+
+.filterAnimeList {
+  color: black
+}
+
+.filterAnimeList > button {
+  color: black
 }
