@@ -14,7 +14,7 @@ router.get("/listAnime", async (req, res) => {
   res.render("anime/listAnime", { items });
 });
 
-router.get("/addToList/:id/:listOption", async (req, res) => {
+router.get("/addList/:id/:listOption", async (req, res) => {
   const listOp = req.params.listOption;
   const user = req.session.currentUser;
   const animeId = req.params.id;

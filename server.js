@@ -47,7 +47,8 @@ app.use((req, res, next) => {
 // root route
 app.get("/", async (req, res) => {
   const items = await AnimeData.getTrendingAnime();
-  res.render("home", { items });
+  const user = req.session.currentUser;
+  res.render("home", { items, user });
 });
 
 const userRouter = require("./routes/user.routes");

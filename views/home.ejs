@@ -1,8 +1,7 @@
 <link rel="stylesheet" href="/css/home.css">
-<h1>project./anime</h1>
-<br><br>
+<br>
 <h2>Trending</h2>
-<ul class="trending">
+<ul class="list">
     <% items.forEach((item) => { %>
     <li>
       <a href="/anime/<%= item.id %>">
@@ -11,4 +10,20 @@
       </a>
     </li>
     <% }) %>
-  </ul>
+</ul>
+<br>
+<h1>project./anime</h1>
+<br>
+<% if (currentUser) { %>
+<h2>Watching</h2>
+<ul class="list">
+  <% user.list.watching.forEach((item) => { %>
+  <li>
+    <a href="/anime/<%= item.id %>">
+      <img src="https://media.kitsu.io/anime/poster_images/<%= item.id %>/tiny.jpg" alt=""><br>
+      <%= item.attributes.canonicalTitle %> 
+    </a>
+  </li>
+  <% }) %>
+</ul>
+<% } %>
