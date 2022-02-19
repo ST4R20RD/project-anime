@@ -49,9 +49,8 @@ router.get("/logout", (req, res) => {
   res.redirect("/user/login");
 });
 
-router.get("/profile", isLoggedIn, (req, res) => {
-  const user = req.session.currentUser;
-  console.log(user.list.watching)
+router.get("/profile", isLoggedIn, async (req, res) => {
+  const user = await User.findById(req.session.currentUser._id);
   res.render("user/profile", { user });
 });
 
