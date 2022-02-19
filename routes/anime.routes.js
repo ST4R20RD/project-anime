@@ -16,7 +16,7 @@ router.get("/listAnime", async (req, res) => {
 
 router.get("/addList/:id/:listOption", async (req, res) => {
   const listOp = req.params.listOption;
-  const user = req.session.currentUser;
+  const user = await User.findById(req.session.currentUser._id);
   const animeId = req.params.id;
   const anime = await AnimeData.getAnimeData(animeId);
   try {
@@ -36,6 +36,7 @@ router.get("/addList/:id/:listOption", async (req, res) => {
         if (isAnimeEqualTo(user.list.watched, anime)) user.list.watched.pop(anime);
         if (isAnimeEqualTo(user.list.watching, anime)) user.list.watching.pop(anime);
     }
+    await user.save();
     res.redirect(`/anime/${animeId}`);
   } catch (error) {
     res.redirect(`/anime/${animeId}`);

@@ -51,6 +51,7 @@ router.get("/logout", (req, res) => {
 
 router.get("/profile", isLoggedIn, (req, res) => {
   const user = req.session.currentUser;
+  console.log(user.list.watching)
   res.render("user/profile", { user });
 });
 
