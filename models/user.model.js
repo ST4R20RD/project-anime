@@ -25,7 +25,8 @@ const userSchema = mongoose.Schema({
     watched: [],
     watching: [],
     planToWatch: [],
-  }
+  },
+  friends: []
 });
 
 module.exports = mongoose.model("User", userSchema);

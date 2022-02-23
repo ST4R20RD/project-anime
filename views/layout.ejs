@@ -11,7 +11,7 @@
         margin: 0;
         padding: 0;
         box-sizing: border-box;
-        font-family:Consolas;
+        font-family: Consolas;
         color: white;
       }
       body {
@@ -39,6 +39,8 @@
         <li style="float: right"><a href="/user/login">Log in</a></li>
         <% } %> <% if (currentUser) { %>
         <li style="float: right"><a href="/user/profile">Profile</a></li>
+        <% } %> <% if (currentUser) { %>
+        <li style="float: right"><a href="/user/friends">Friends</a></li>
         <% } %> <% if (currentUser) { %>
         <li style="float: right"><a href="/user/logout">Log out</a></li>
         <% } %>

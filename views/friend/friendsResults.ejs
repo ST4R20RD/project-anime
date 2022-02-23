@@ -1,0 +1,6 @@
+<link rel="stylesheet" href="/css/index.css" />
+<h1>Friends Search Result</h1>
+
+<% result.forEach((item) => { %> 
+    <a href="/user/friendProfile/<%= item._id %>"><%= item.username %></a> <a href="/user/friends/<%= item._id %>/add">Add</a>
+<% }) %>

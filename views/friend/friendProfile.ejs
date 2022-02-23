@@ -1,0 +1,37 @@
+<link rel="stylesheet" href="/css/profile.css">
+<link rel="stylesheet" href="/css/index.css" />
+<h1>Username: <%= friend.username %></h1> 
+
+<ul class="lists">
+    <li><p>Watched</p></li>
+    <ul class="list">
+      <% friend.list.watched.forEach((item) => { %>
+      <li>
+        <a href="/anime/<%= item.id %>">
+          <img src="https://media.kitsu.io/anime/poster_images/<%= item.id %>/tiny.jpg" alt=""><br>
+          <%= item.attributes.canonicalTitle %> 
+        </a>
+      </li>
+      <% }) %>
+    </ul>
+    <li><p>Watching</p></li>
+    <ul class="list">
+      <% friend.list.watching.forEach((item) => { %>
+      <li>
+        <a href="/anime/<%= item.id %>">
+          <img src="https://media.kitsu.io/anime/poster_images/<%= item.id %>/tiny.jpg" alt=""><br>
+          <%= item.attributes.canonicalTitle %> </a>
+      </li>
+      <% }) %>
+    </ul>
+    <li><p>Plan To Watch</p></li>
+    <ul class="list">
+      <% friend.list.planToWatch.forEach((item) => { %>
+      <li>
+        <a href="/anime/<%= item.id %>">
+          <img src="https://media.kitsu.io/anime/poster_images/<%= item.id %>/tiny.jpg" alt=""><br>
+          <%= item.attributes.canonicalTitle %> </a>
+      </li>
+      <% }) %>
+    </ul>
+  </ul>
