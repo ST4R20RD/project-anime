@@ -32,6 +32,23 @@
         </div>
         <% } %>
       </li>
+      <br>
+      <li id="friendsWatched">
+        <% if (currentUser) { %>
+          <% let show = false; %>
+          <% friends.forEach((friend) => { %>
+            <% for (let i = 0; i < friend.list.watched.length; i++) { %>
+              <% if (friend.list.watched[i].id === item.id) { %>
+                <a href="/user/friendProfile/<%= friend._id %>"><%= friend.username %></a>
+                <% show = true; %>
+              <% } %>
+            <% } %>
+          <% }) %>
+          <% if (show) { %>
+          <p> watched this!</p>
+          <% } %>
+        <% } %>
+      </li>
     </ul>
   </div>
 

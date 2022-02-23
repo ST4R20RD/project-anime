@@ -64,9 +64,10 @@ router.get("/listAnime/filter", async (req, res) => {
 })
 
 router.get("/:id", async (req, res) => {
-  const id = req.params.id;
-  const item = await AnimeData.getAnimeData(id);
-  res.render("anime/anime", { item });
+  const item = await AnimeData.getAnimeData(req.params.id);
+  const user = await User.findById(req.session.currentUser._id);
+  const friends = user.friends;
+  res.render("anime/anime", { item , friends});
 });
 
 module.exports = router;

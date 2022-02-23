@@ -29,7 +29,9 @@
 <div>
   <% if (friends) { %>
     <% friends.forEach((friend) => { %>
-      <a href="/user/friendProfile/<%= friend._id %>"><%= friend.username %></a>
+      <ul>
+        <li><a href="/user/friendProfile/<%= friend._id %>"><%= friend.username %></a></li>
+      </ul>
     <% }); %>    
   <% }; %>
 </div>

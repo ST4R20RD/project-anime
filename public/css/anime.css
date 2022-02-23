@@ -64,3 +64,8 @@ li {
 .animeDetails {
   padding: 10px;
 }
+
+#friendsWatched {
+  display: flex;
+  justify-content: space-between;
+}
