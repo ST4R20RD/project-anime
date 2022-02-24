@@ -65,7 +65,7 @@ li {
   padding: 10px;
 }
 
-#friendsWatched {
+#friends {
   display: flex;
   justify-content: space-between;
 }

@@ -28,13 +28,13 @@
         <div id="addListDrop" class="addListDrop-item">
           <a href="/anime/addList/<%= item.id %>/watched">Watched</a>
           <a href="/anime/addList/<%= item.id %>/watching">Watching</a>
-          <a href="/anime/addList/<%= item.id %>/planWatch">Plan To Watch</a>
+          <a href="/anime/addList/<%= item.id %>/planToWatch">Plan To Watch</a>
         </div>
         <% } %>
       </li>
       <br>
-      <li id="friendsWatched">
-        <% if (currentUser) { %>
+      <li id="friends">
+        <% if (user) { %>
           <% let show = false; %>
           <% friends.forEach((friend) => { %>
             <% for (let i = 0; i < friend.list.watched.length; i++) { %>
@@ -46,6 +46,38 @@
           <% }) %>
           <% if (show) { %>
           <p> watched this!</p>
+          <% } %>
+        <% } %>
+      </li>
+      <li id="friends">
+        <% if (user) { %>
+          <% let show = false; %>
+          <% friends.forEach((friend) => { %>
+            <% for (let i = 0; i < friend.list.watching.length; i++) { %>
+              <% if (friend.list.watching[i].id === item.id) { %>
+                <a href="/user/friendProfile/<%= friend._id %>"><%= friend.username %></a>
+                <% show = true; %>
+              <% } %>
+            <% } %>
+          <% }) %>
+          <% if (show) { %>
+          <p> is watching this anime!</p>
+          <% } %>
+        <% } %>
+      </li>
+      <li id="friends">
+        <% if (user) { %>
+          <% let show = false; %>
+          <% friends.forEach((friend) => { %>
+            <% for (let i = 0; i < friend.list.planToWatch.length; i++) { %>
+              <% if (friend.list.planToWatch[i].id === item.id) { %>
+                <a href="/user/friendProfile/<%= friend._id %>"><%= friend.username %></a>
+                <% show = true; %>
+              <% } %>
+            <% } %>
+          <% }) %>
+          <% if (show) { %>
+          <p> is planning to watch this anime!</p>
           <% } %>
         <% } %>
       </li>

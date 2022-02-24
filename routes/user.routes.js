@@ -63,7 +63,7 @@ router.get("/profile/:listOption", async (req, res) => {
 });
 
 router.get("/friends", async (req, res) => {
-  const user = await User.findById(req.session.currentUser._id);
+  const user = await User.findById(req.session.currentUser._id).populate("friends");
   const friends = user.friends;
   res.render("friend/friends", { friends });
 });
@@ -79,7 +79,7 @@ router.get("/friends/:id/add", async (req, res) => {
   const friend = await User.findById(req.params.id);
   try {
     if (!isUserEqualTo(user.friends, friend)) {
-      user.friends.push(friend);
+      user.friends.push(friend._id);
     }
     user.save();
     res.redirect("/user/friends")
