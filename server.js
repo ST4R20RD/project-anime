@@ -53,8 +53,11 @@ app.use((req, res, next) => {
 // root route
 app.get("/", async (req, res) => {
   const items = await AnimeData.getTrendingAnime();
-  const user = await User.findById(req.session.currentUser._id);
-  res.render("home", { items, user });
+  let user = null;
+  if (req.session.currentUser) {
+    user = await User.findById(req.session.currentUser._id);
+  }
+  res.render("home", { items , user});
 });
 
 const userRouter = require("./routes/user.routes");
