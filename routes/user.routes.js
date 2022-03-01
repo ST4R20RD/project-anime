@@ -14,8 +14,6 @@ router.post("/signin", async (req, res) => {
   const user = new User();
   user.email = req.body.email;
   user.username = req.body.username;
-  user.favoriteAnime = req.body.favoriteAnime;
-  user.favoriteAnimeWebsite = req.body.favoriteAnimeWebsite;
   try {
     user.password = await bcrypt.hash(req.body.password, 10);
     await user.save();

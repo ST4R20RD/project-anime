@@ -95,7 +95,6 @@
 </form>
 
 <ul>
-  <% console.log(comments) %>
   <% if (comments.length) { %>
     <% comments.forEach(comment => { %>
     <li><%= comment.content %> by <%= comment.author.username %></li>
