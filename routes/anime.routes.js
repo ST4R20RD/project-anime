@@ -5,6 +5,7 @@ const Anime = require("../models/anime.model");
 const AnimeData = require("../AnimeData");
 
 const User = require("../models/user.model");
+const Comments = require("../models/comment.model")
 
 const router = express.Router();
 
@@ -65,6 +66,8 @@ router.get("/listAnime/filter", async (req, res) => {
 
 router.get("/:id", async (req, res) => {
   const item = await AnimeData.getAnimeData(req.params.id);
+  const comments = await Comments.find( { animeId: req.params.id }).populate("author");
+  
   if (req.session.currentUser) {
     const user = await User.findById(req.session.currentUser._id).populate("friends");
     const friends = user.friends;
@@ -72,7 +75,18 @@ router.get("/:id", async (req, res) => {
     return
   }
   let user = false
-  res.render("anime/anime", { item, user })
+  res.render("anime/anime", { item, user, comments }) 
+});
+
+router.post("/:id", isLoggedIn, async (req, res) => {
+  const user = req.session.currentUser;
+  const comment = new Comment();
+  comment.animeId = req.params.id;
+  comment.content = req.body.content;
+  comment.author = user._id;
+  await comment.save();
+  post.comments.push(comment.id);
+  await post.save();
 });
 
 module.exports = router;

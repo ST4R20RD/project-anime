@@ -88,6 +88,21 @@
   <h3 id="synopsis"><%= item.attributes.synopsis %></h3>
 </div>
 
+<h3>comments</h3>
+<form action="/comment/<%= item.id %>" method="post">
+  <input type="text" name="content" />
+  <button type="submit">submit</button>
+</form>
+
+<ul>
+  <% console.log(comments) %>
+  <% if (comments.length) { %>
+    <% comments.forEach(comment => { %>
+    <li><%= comment.content %> by <%= comment.author.username %></li>
+    <% }) %>
+  <% } %>
+</ul>
+
 <script>
   const x = 0;
 
