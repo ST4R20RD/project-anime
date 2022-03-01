@@ -6,6 +6,8 @@ const store = require("connect-mongo");
 const dotenv = require("dotenv");
 const AnimeData = require("./AnimeData")
 
+const User = require("./models/user.model");
+
 // environment variables
 dotenv.config();
 
@@ -51,7 +53,7 @@ app.use((req, res, next) => {
 // root route
 app.get("/", async (req, res) => {
   const items = await AnimeData.getTrendingAnime();
-  const user = req.session.currentUser;
+  const user = await User.findById(req.session.currentUser._id);
   res.render("home", { items, user });
 });
 

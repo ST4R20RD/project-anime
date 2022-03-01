@@ -71,7 +71,7 @@ router.get("/:id", async (req, res) => {
   if (req.session.currentUser) {
     const user = await User.findById(req.session.currentUser._id).populate("friends");
     const friends = user.friends;
-    res.render("anime/anime", { item , friends, user});
+    res.render("anime/anime", { item , friends, user, comments});
     return
   }
   let user = false
