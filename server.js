@@ -61,4 +61,7 @@ app.use("/user", userRouter);
 const animeRouter = require("./routes/anime.routes");
 app.use("/anime", animeRouter);
 
+const commentRouter = require("./routes/comment.routes");
+app.use("/comment", commentRouter);
+
 app.listen(process.env.PORT);
