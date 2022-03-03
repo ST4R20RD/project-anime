@@ -1,15 +1,15 @@
 <link rel="stylesheet" href="/css/listAnime.css" />
 <link rel="stylesheet" href="/css/index.css" />
+<link rel="stylesheet" href="/css/list.css">
 
 <h1>Search Results</h1>
 <h2>Category: <%= filterAnimeList %></h2>
-<ul class="listAnimes">
+<ul class="list">
   <% result.forEach((item) => { %>
   <li>
     <a href="/anime/<%= item.id %>">
-      <img src="https://media.kitsu.io/anime/poster_images/<%= item.id %>/small.jpg" alt="" />
-      <br/>
-      <p class="title"><%= item.attributes.canonicalTitle %></p>
+      <img src="https://media.kitsu.io/anime/poster_images/<%= item.id %>/small.jpg" alt=""><br>
+      <p id="animeTitle"><%= item.attributes.canonicalTitle %></p>
     </a>
   </li>
   <% }) %>

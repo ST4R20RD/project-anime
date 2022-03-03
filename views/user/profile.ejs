@@ -1,4 +1,5 @@
 <link rel="stylesheet" href="/css/profile.css">  
+<link rel="stylesheet" href="/css/list.css">
 <h1>Profile</h1>
 <h2> <%= user.username %></h2>
 <ul class="lists">
@@ -8,7 +9,7 @@
     <li>
       <a href="/anime/<%= item.id %>">
         <img src="https://media.kitsu.io/anime/poster_images/<%= item.id %>/tiny.jpg" alt=""><br>
-        <%= item.attributes.canonicalTitle %> 
+        <p id="animeTitle"><%= item.attributes.canonicalTitle %></p> 
       </a>
     </li>
     <% }) %>
@@ -19,7 +20,8 @@
     <li>
       <a href="/anime/<%= item.id %>">
         <img src="https://media.kitsu.io/anime/poster_images/<%= item.id %>/tiny.jpg" alt=""><br>
-        <%= item.attributes.canonicalTitle %> </a>
+        <p id="animeTitle"><%= item.attributes.canonicalTitle %></p>
+      </a>
     </li>
     <% }) %>
   </ul>
@@ -29,7 +31,8 @@
     <li>
       <a href="/anime/<%= item.id %>">
         <img src="https://media.kitsu.io/anime/poster_images/<%= item.id %>/tiny.jpg" alt=""><br>
-        <%= item.attributes.canonicalTitle %> </a>
+        <p id="animeTitle"><%= item.attributes.canonicalTitle %></p> 
+      </a>
     </li>
     <% }) %>
   </ul>

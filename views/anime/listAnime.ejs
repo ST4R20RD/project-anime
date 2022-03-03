@@ -1,5 +1,6 @@
 <link rel="stylesheet" href="/css/listAnime.css" />
 <link rel="stylesheet" href="/css/index.css" />
+<link rel="stylesheet" href="/css/list.css">
 
 <h1>://anime.list</h1>
 <br />
@@ -29,7 +30,7 @@
 <br>
 
 <form action="/anime/listAnime/filter" class="filterAnimeList">
-  <label for="filterAnimeList">Categories</label>
+  <label for="filterAnimeList">Genre</label>
   <select name="filterAnimeList" class="filterAnimeList">
     <option value="Action">Action</option>
     <option value="Adventure">Adventure</option>
@@ -77,19 +78,14 @@
 <div class="container">
   <button onclick="pageChanger(false)"><</button>
   <button onclick="pageChanger(true)">></button>
-  <ul class="listAnimes">
+  <ul class="list">
     <% items.forEach((item) => { %>
-
-    <li>
-      <a href="/anime/<%= item.id %>">
-        <img
-          src="https://media.kitsu.io/anime/poster_images/<%= item.id %>/small.jpg"
-          alt=""
-        />
-        <br />
-        <p class="title"><%= item.attributes.canonicalTitle %></p>
-      </a>
-    </li>
+      <li>
+        <a href="/anime/<%= item.id %>">
+          <img src="https://media.kitsu.io/anime/poster_images/<%= item.id %>/small.jpg" alt=""><br>
+          <p id="animeTitle"><%= item.attributes.canonicalTitle %></p>
+        </a>
+      </li>
     <% }) %>
   </ul>
   <button onclick="pageChanger(false)"><</button>
