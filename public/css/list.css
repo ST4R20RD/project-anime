@@ -32,3 +32,9 @@
   #animeTitle {
     padding-left: 5px;
   }
+
+  #deleteListBtn {
+    color: black;
+    border: 5px;
+    padding: 2px;
+  }

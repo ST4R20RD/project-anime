@@ -44,6 +44,30 @@ router.get("/addList/:id/:listOption", async (req, res) => {
   }
 });
 
+router.get("/deleteList/:id/:listOption", async (req, res) => {
+  const listOp = req.params.listOption;
+  const user = await User.findById(req.session.currentUser._id);
+  const animeId = req.params.id;
+  const anime = await AnimeData.getAnimeData(animeId);
+  try {
+    switch (listOp) {
+      case "watched":
+        if (isAnimeEqualTo(user.list.watched, anime)) user.list.watched.pop(anime);
+        break;
+      case "watching":
+        if (isAnimeEqualTo(user.list.watching, anime)) user.list.watching.pop(anime);
+        break;
+      case "planToWatch":
+        if (isAnimeEqualTo(user.list.planToWatch, anime)) user.list.planToWatch.pop(anime);
+        break;
+    }
+    await user.save();
+    res.redirect(`/user/profile`);
+  } catch (error) {
+    res.redirect(`/anime/${animeId}`);
+  }
+})
+
 //get the anime page by parameter page number
 router.get("/listAnime/page/:pageNumber", async (req, res) => {
   const pageNr = req.params.pageNumber;
@@ -76,17 +100,6 @@ router.get("/:id", async (req, res) => {
   }
   let user = false
   res.render("anime/anime", { item, user, comments }) 
-});
-
-router.post("/:id", isLoggedIn, async (req, res) => {
-  const user = req.session.currentUser;
-  const comment = new Comment();
-  comment.animeId = req.params.id;
-  comment.content = req.body.content;
-  comment.author = user._id;
-  await comment.save();
-  post.comments.push(comment.id);
-  await post.save();
 });
 
 module.exports = router;

@@ -11,6 +11,7 @@
         <img src="https://media.kitsu.io/anime/poster_images/<%= item.id %>/tiny.jpg" alt=""><br>
         <p id="animeTitle"><%= item.attributes.canonicalTitle %></p> 
       </a>
+      <a href="/anime/deleteList/<%= item.id %>/watched" id="deleteListBtn">Delete</a>
     </li>
     <% }) %>
   </ul>
@@ -22,6 +23,7 @@
         <img src="https://media.kitsu.io/anime/poster_images/<%= item.id %>/tiny.jpg" alt=""><br>
         <p id="animeTitle"><%= item.attributes.canonicalTitle %></p>
       </a>
+      <a href="/anime/deleteList/<%= item.id %>/watching" id="deleteListBtn">Delete</a>
     </li>
     <% }) %>
   </ul>
@@ -33,6 +35,7 @@
         <img src="https://media.kitsu.io/anime/poster_images/<%= item.id %>/tiny.jpg" alt=""><br>
         <p id="animeTitle"><%= item.attributes.canonicalTitle %></p> 
       </a>
+      <a href="/anime/deleteList/<%= item.id %>/planToWatch" id="deleteListBtn">Delete</a>
     </li>
     <% }) %>
   </ul>
