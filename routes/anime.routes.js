@@ -44,7 +44,7 @@ router.get("/addList/:id/:listOption", async (req, res) => {
   }
 });
 
-router.get("/deleteList/:id/:listOption", async (req, res) => {
+/* router.get("/deleteList/:id/:listOption", async (req, res) => {
   const listOp = req.params.listOption;
   const user = await User.findById(req.session.currentUser._id);
   const animeId = req.params.id;
@@ -66,7 +66,7 @@ router.get("/deleteList/:id/:listOption", async (req, res) => {
   } catch (error) {
     res.redirect(`/anime/${animeId}`);
   }
-})
+}) */
 
 //get the anime page by parameter page number
 router.get("/listAnime/page/:pageNumber", async (req, res) => {
